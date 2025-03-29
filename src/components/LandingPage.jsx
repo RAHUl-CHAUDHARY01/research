@@ -199,7 +199,7 @@ const ResearchPublicationPage = () => {
                 <img 
                   src={logo} 
                   alt={`Partner logo ${index + 1}`} 
-                  className="h-12 md:h-20 object-contain  hover:grayscale-0 transition-all duration-300 w-auto mx-auto"
+                  className="h-20 md:h-30 object-contain  hover:grayscale-0 transition-all duration-300 w-30 mx-auto "
                 />
               </div>
             ))}
@@ -212,8 +212,9 @@ const ResearchPublicationPage = () => {
             { 
               icon: <FiBook className="w-8 h-8 mb-3 mx-auto text-blue-400" />, 
               title: "Comprehensive Journal Network", 
-              text: "Access to 1000+ indexed journals and conferences across all disciplines",
-              onClick: openJournalModal
+              text: "Access to 1000+ indexed journals and conferences across all disciplines. Click to know more",
+              onClick: openJournalModal,
+              isvisible: true
             },
             { 
               icon: <FiAward className="w-8 h-8 mb-3 mx-auto text-purple-400" />, 
@@ -234,6 +235,7 @@ const ResearchPublicationPage = () => {
               <div className="text-center">{item.icon}</div>
               <h3 className="text-xl font-semibold mb-2 text-white text-center">{item.title}</h3>
               <p className="text-blue-100 text-center">{item.text}</p>
+              {item.isvisible===true && <p className="text-blue-400 font-bold mt-2 bg-white backdrop-blur-sm p-2 rounded-xl border border-white/10 hover:border-blue-400/30 transition-all duration-300 hover:scale-[1.02] text-center">Click To Know More</p>}
             </div>
           ))}
         </div>
@@ -466,7 +468,7 @@ const ResearchPublicationPage = () => {
         onRequestClose={closeJournalModal}
         className="modal"
         overlayClassName="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto"
-        closeTimeoutMS={300}
+        
         style={{
           content: {
             position: 'relative',
@@ -482,7 +484,7 @@ const ResearchPublicationPage = () => {
           }
         }}
       >
-        <div className="relative bg-white rounded-xl shadow-2xl max-w-5xl w-full mx-auto my-8 animate-scale-in">
+        <div className="relative bg-white rounded-xl shadow-2xl max-w-5xl w-full mx-auto">
           <div className="bg-gradient-to-r from-blue-700 to-purple-700 p-4 md:p-6 text-white top-0 z-10 rounded-t-[10px]">
             <div className="flex justify-between items-start overflow-hidden">
               <div>
@@ -493,7 +495,7 @@ const ResearchPublicationPage = () => {
               </div>
               <button 
                 onClick={closeJournalModal}
-                className="p-1 md:p-2 rounded-full hover:bg-white/20 transition"
+                className="p-1 md:p-2 rounded-full hover:bg-white/20 "
                 aria-label="Close"
               >
                 <FiX className="w-4 h-4 md:w-5 md:h-5" />
