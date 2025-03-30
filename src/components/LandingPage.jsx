@@ -28,10 +28,10 @@ const ResearchPublicationPage = () => {
     setIsSubmitting(true);
     
     emailjs.send(
-      'service_pabogee',
-      'template_z5vds4e',
+      'service_pueksvp',
+      'template_34pu84p',
       formData,
-      'pHF5mGVBTEu6WvxxW'
+      '4Qiz-sgymd7QVP2_J'
     )
     .then(() => {
       setIsSuccess(true);
